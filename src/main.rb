@@ -1,0 +1,3 @@
+require_relative 'imposto_processor'
+
+ImpostoProcessor.processar_linhas

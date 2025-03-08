@@ -1,0 +1,38 @@
+# Ignorar dependências gerenciadas pelo Bundler
+/.bundle
+/vendor/bundle
+
+# Ignorar arquivos gerados pelo Bundler
+Gemfile.lock
+
+# Ignorar diretórios e arquivos temporários
+/tmp
+/log
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignorar arquivos de testes temporários
+/spec/examples
+/spec/fixtures
+
+# Ignorar arquivos de cache e logs
+/log/*
+/test/tmp
+/test/version_tmp
+
+# Ignorar arquivos de configuração específicos do ambiente
+/.env
+/.env.*
+
+# Ignorar arquivos de backup
+*~
+*.bak
+*.swp
+
+# Ignorar arquivos de configuração do editor
+.vscode/
+.idea/
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
