@@ -124,7 +124,11 @@ bundle exec rspec spec/imposto_calculator_spec.rb
 
 ## Material de Apoio
 [Como instalar e usar Ruby em distribuições Linux](https://pt.linux-terminal.com/?p=907)
+
 [Testes unitarios usando RSpec](https://www.dio.me/articles/uma-introducao-ao-rspec-testando-em-ruby-com-elegancia)
+
 [MVC Model-View-Controller](https://www.devmedia.com.br/padrao-mvc-java-magazine/21995)
+
 [Como instalar Ruby no MacOs](https://pedrohjmartins.medium.com/como-instalar-ruby-no-macos-80537b81821b)
+
 [como usar Ruby no Windows](https://www.ruby-lang.org/pt/documentation/installation/)
