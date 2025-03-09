@@ -3,7 +3,7 @@ Aplicação CLI desenvolvida como desafio técnico para uma vaga de Engenheiro d
 
 ## Tecnologias Adotada
 Após mais de 4 anos estudando e trabalhando com Java, o que me motivava a aprender coisas novas sempre foi o Trabalho, foi assim que eu aprendi a lidar com Javacript e Python.
-Cerca de um mês atrás resolvi aprender uma nova linguagem de programação e optei pelo Ruby onde vi neste desafio uma grande oportunidade para exercitar de fato meus conhecimentos nesta nova linguagem.
+Cerca de dois meses atrás resolvi aprender uma nova linguagem de programação e optei pelo Ruby onde vi neste desafio uma grande oportunidade para exercitar meus conhecimentos nesta nova linguagem.
 Para construção dos testes unitarios foi usado o framework RSpec por ser bastante comum no Ruby, neste quisito confesso que não tenho tantos conhecimentos como no uso de Junit ou Mockito para o Java, mas consegui desenvolver alguns cenarios através de pesquisas.
 
 ## Arquitetura e organização do codigo.
