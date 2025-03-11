@@ -10,15 +10,20 @@ Para construção dos testes unitarios foi usado o framework RSpec por ser basta
 Por ser uma aplicação relativamente simples e sem muita regra ou complexidade envolvida, optei por usar o bom e velho  padrão de design [MVC Model-View-Controller](https://www.devmedia.com.br/padrao-mvc-java-magazine/21995), onde as camadas da aplicação estão organizadas da seguinte maneira:
 
  ```bash
-├── inputs/                   # Contém todos inputs relacionados aos cenarios solicitados como arquivos txt
-├── spec/                     # Diretório contendo os testes do projeto
-├── src/                      # Diretório contendo a lógica de negócio
-│   ├── operacao.rb           # Classe para representar operações
-│   ├── imposto_calculator.rb # Classe para calcular impostos
-│   ├── imposto_processor.rb  # Classe para processar as operações
-│   └── main.rb               # Ponto de entrada da aplicação
-├── Gemfile                   # Dependências do Ruby
+├── inputs/                   # Contem arquivos de entrada para testes
+├── spec/                     # Contem os testes do projeto
+├── src/                      # Diretorio principal da aplicacao
+│   ├── models/               
+│   │   ├── operacao.rb       # Representa o objeto da operacao de compra/venda
+│   │   ├── imposto_calculator.rb # Calcula os impostos das operacoes
+│   ├── services/             
+│   │   ├── imposto_processor.rb  # Processa as operacoes e chama o calculo de imposto
+│   ├── views/               
+│   │   ├── output.rb         # Retorna o resultado
+│   └── main.rb               # Classe principal responsavel pela execução da aplicação
+├── Gemfile                   # Dependências do projeto
 └── README.md                 # Documentação
+
 ```
 
 ## Configuração de Ambiente

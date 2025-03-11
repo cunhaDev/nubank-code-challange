@@ -1,4 +1,5 @@
-require_relative '../src/operacao'
+require 'rspec'
+require_relative '../src/models/operacao'
 
 RSpec.describe Operacao do
   it 'cria uma instância de Operacao com os atributos corretos' do

@@ -1,3 +1,3 @@
-require_relative 'imposto_processor'
+require_relative 'services/imposto_processor'
 
 ImpostoProcessor.processar_linhas

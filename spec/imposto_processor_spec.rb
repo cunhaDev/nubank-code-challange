@@ -1,30 +1,47 @@
+require 'rspec'
 require 'json'
-require 'stringio'
-require_relative '../src/imposto_processor'
-require_relative '../src/operacao'
-require_relative '../src/imposto_calculator'
+require_relative '../src/models/operacao'
+require_relative '../src/models/imposto_calculator'
+require_relative '../src/views/output'
+require_relative '../src/services/imposto_processor'
 
 describe ImpostoProcessor do
   before do
-    @original_stdin = $stdin
-    @original_stdout = $stdout
-    @original_stderr = $stderr
+    allow(OutputView).to receive(:exibir)
   end
 
-  after do
-    $stdin = @original_stdin
-    $stdout = @original_stdout
-    $stderr = @original_stderr
+  context "when processing valid JSON input" do
+    let(:valid_json) { '[{"operation": "buy", "unit-cost": 10.0, "quantity": 5}]' }
+
+    it "parses JSON and processes operations" do
+      allow(ARGF).to receive(:each_line).and_yield(valid_json)
+      
+      expect(Operacao).to receive(:new).with("buy", 10.0, 5).and_return(instance_double("Operacao"))
+      expect_any_instance_of(ImpostoCalculator).to receive(:calcular_imposto).and_return([])
+      expect(OutputView).to receive(:exibir).with([])
+      
+      ImpostoProcessor.processar_linhas
+    end
   end
 
-  it 'processa corretamente uma linha de operacoes de compra e venda' do
-    input = '[{"operation": "buy", "unit-cost": 10.0, "quantity": 100}, {"operation": "sell", "unit-cost": 15.0, "quantity": 50}]'
-    $stdin = StringIO.new(input)
-    $stdout = StringIO.new
+  context "when processing empty lines" do
+    it "ignores empty lines" do
+      allow(ARGF).to receive(:each_line).and_yield("\n").and_yield("   ")
+      
+      expect(Operacao).not_to receive(:new)
+      expect(OutputView).not_to receive(:exibir)
+      
+      ImpostoProcessor.processar_linhas
+    end
+  end
 
-    ImpostoProcessor.processar_linhas
+  context "when JSON is invalid" do
+    let(:invalid_json) { 'invalid json' }
 
-    output = JSON.parse($stdout.string.strip)
-    expect(output).to eq([{ "tax" => 0.00 }, { "tax" => 0.00 }])
+    it "handles JSON parsing errors gracefully" do
+      allow(ARGF).to receive(:each_line).and_yield(invalid_json)
+      
+      expect { ImpostoProcessor.processar_linhas }.to output(/Erro ao processar operacao/).to_stderr
+    end
   end
 end

@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../src/operacao'
-require_relative '../src/imposto_calculator'
+require_relative '../src/models/imposto_calculator'
+require_relative '../src/models/operacao'
 
 describe ImpostoCalculator do
   let(:calculator) { ImpostoCalculator.new }
